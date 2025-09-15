@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  home-manager.enable = true;
+
   outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.my-host = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -19,18 +19,16 @@
         ./modules/packages.nix
         ./modules/shell.nix
         ./configuration.nix
-        # ./modules/home-manager.nix
+
+        # Import Home Manager as a NixOS module:
         home-manager.nixosModules.home-manager
+
+        # Home Manager configuration:
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.your-username = import ./modules/home-manager.nix;
         }
-
-        # Import Home Manager as a NixOS module here:
-        home-manager.nixosModules.home-manager
-
-        # ./modules/home-manager.nix
       ];
     };
   };
