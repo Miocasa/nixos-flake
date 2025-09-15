@@ -21,14 +21,14 @@
         ./configuration.nix
 
         # Import Home Manager as a NixOS module:
-        home-manager.nixosModules.home-manager
+        # home-manager.nixosModules.home-manager
 
         # Home Manager configuration:
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.your-username = import ./modules/home-manager.nix;
-        }
+        # {
+          # home-manager.useGlobalPkgs = true;
+          # home-manager.useUserPackages = true;
+          # home-manager.users.miocasa = import ./modules/home-manager.nix;
+        # }
       ];
     };
   };
