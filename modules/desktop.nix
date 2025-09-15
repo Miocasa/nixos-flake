@@ -22,6 +22,7 @@ in
     git
     tree
     gamescope
+    vesktop
   ];
 
   users.defaultUserShell = pkgs.zsh;
