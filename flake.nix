@@ -2,10 +2,13 @@
   description = "NixOS system flake with GNOME, GDM, Steam, Flatpak, NV/AMD drivers and dev tools";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
+  home-manager.enable = true;
   outputs = { self, nixpkgs, home-manager, ... }: {
     nixosConfigurations.my-host = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -16,6 +19,13 @@
         ./modules/packages.nix
         ./modules/shell.nix
         ./configuration.nix
+        # ./modules/home-manager.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.your-username = import ./modules/home-manager.nix;
+        }
 
         # Import Home Manager as a NixOS module here:
         home-manager.nixosModules.home-manager

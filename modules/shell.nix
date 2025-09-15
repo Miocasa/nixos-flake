@@ -7,7 +7,7 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
   };
-
+  
   programs.zsh.ohMyZsh = {
     enable = true;
     plugins = [ "git" "sudo" ];

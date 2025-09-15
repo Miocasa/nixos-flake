@@ -9,7 +9,7 @@ in
     users = {
       ${username} = {
         isNormalUser = true;
-        description = "Miocasa (local user)";
+        description = "Miocasa";
         extraGroups = [ "wheel" "audio" "video" "networkmanager" ];
         openssh.authorizedKeys.keys = [];
         shell = pkgs.zsh;
