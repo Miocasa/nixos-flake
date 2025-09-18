@@ -13,18 +13,15 @@
     dconf-editor
     gparted
     dbeaver-bin
-    pinta
+    # pinta
     google-chrome
     zoom-us
-    postman
-    slack
+    # postman
+    # slack
     telegram-desktop
     youtube-music
-    # mpv
-    # mpvScripts.mpris
-    # mpvScripts.inhibit-gnome
-    # mpvScripts.modernz
-    # User-space Dev Tools
+    yt-dlp
+    google-cursor
     neovim
     starship
     luarocks
@@ -34,7 +31,8 @@
     eza
     cava
     fum
-    aider-chat
+    # aider-chat
+    dconf-editor
 
     # GNOME Extensions
     gnomeExtensions.media-controls
@@ -50,8 +48,8 @@
     gnomeExtensions.gsconnect
     gnomeExtensions.coverflow-alt-tab
     gnomeExtensions.compiz-windows-effect
-    gnomeExtensions.system-monitor
     gnomeExtensions.space-bar
+    # gnomeExtensions.system-monitor
 
     # Icons and Themes
     morewaita-icon-theme
@@ -61,7 +59,7 @@
     scripts = with pkgs.mpvScripts; [
       inhibit-gnome
       mpris
-      modernz
+      uosc
     ];
   };
 

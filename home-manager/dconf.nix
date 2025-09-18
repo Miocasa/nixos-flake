@@ -28,13 +28,21 @@
       disabled-extensions = [];
       disable-user-extensions = false;
       enabled-extensions = [
-        # "openbar@neuromorph"
-        # "mediacontrols@cliffniff.github.com"
-        # "user-theme@gnome-shell-extensions.gcampax.github.com"
-        # "Vitals@CoreCoding.com"
-        # "appindicatorsupport@rgcjonas.gmail.com"
-        # "blur-my-shell@aunetx"
-        # "tilingshell@ferrarodomenico.com"
+        "CoverflowAltTab@palatis.blogspot.com"
+        "Vitals@CoreCoding.com"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+        "caffeine@patapon.info"
+        "clipboard-indicator@tudmotu.com"
+        "compiz-windows-effect@hermes83.github.com"
+        "dash-to-dock@micxgx.gmail.com"
+        "gsconnect@andyholmes.github.io"
+        "mediacontrols@cliffniff.github.com"
+        "pip-on-top@rafostar.github.com"
+        "space-bar@luchrioh"
+        # "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "tilingshell@ferrarodomenico.com"
+
       ];
       favorite-apps = [
         "google-chrome.desktop"
@@ -63,16 +71,16 @@
       alphabetize = true;
       hide-zeros = false;
     };
-    "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      blur = true;
-      brightness = 0.90;
-      sigma = 2;
-      opacity = 240;
-      enable-all = true;
-      blacklist = ["Plank" "com.desktop.ding" "Conky" "kitty" "dconf-editor"];
-    };
+    # "org/gnome/shell/extensions/blur-my-shell/applications" = {
+    #   blur = true;
+    #   brightness = 0.90;
+    #   sigma = 2;
+    #   opacity = 240;
+    #   enable-all = true;
+    #   blacklist = ["Plank" "com.desktop.ding" "Conky" "kitty" "dconf-editor"];
+    # };
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      blur = false;
+      blur = true;
     };
     "org/gnome/shell/extensions/tilingshell" = {
       inner-gaps = 12;
