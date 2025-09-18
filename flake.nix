@@ -1,27 +1,37 @@
 {
-  description = "NixOS system flake with GNOME, GDM, Steam, Flatpak, NV/AMD drivers and dev tools";
+  description = "NixOS + Hyprland dotfiles";
 
   inputs = {
+    # nixpkgs-zerotier.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.my-host = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./modules/hardware.nix
-        ./modules/desktop.nix
-        ./modules/users.nix
-        ./modules/packages.nix
-        ./modules/shell.nix
-        ./configuration.nix
-
-        # Import Home Manager as a NixOS module here:
-        home-manager.nixosModules.home-manager
-
-        # ./modules/home-manager.nix
-      ];
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+  in {
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        # > Our main nixos configuration file <
+        modules = [
+          ./nixos
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.miocasa = import ./home-manager/home.nix;
+          }
+        ];
+      };
     };
   };
 }
