@@ -20,5 +20,13 @@
     gamescope
     vesktop
     libreoffice-fresh
+    fastfetch
+    
+    # python environment
+    uv
+    pipx
+
+    nix-ld
   ];
+  programs.nix-ld.enable = true;
 }

@@ -23,9 +23,12 @@
 
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q" "<Alt>F4"];
+      toggle-fullscreen = ["<Super>f"];
     };
+    
     "org/gnome/shell" = {
       disabled-extensions = [];
+      remember-mount-password = ["true"];
       disable-user-extensions = false;
       enabled-extensions = [
         "CoverflowAltTab@palatis.blogspot.com"

@@ -35,6 +35,9 @@
     dconf-editor
 
     # GNOME Extensions
+    gnomeExtensions.auto-accent-colour
+    gnomeExtensions.bluetooth-battery-meter
+    gnomeExtensions.edit-desktop-files
     gnomeExtensions.media-controls
     gnomeExtensions.vitals
     gnomeExtensions.appindicator
