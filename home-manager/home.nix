@@ -30,9 +30,20 @@
     lazydocker
     eza
     cava
+    kitty
     fum
     # aider-chat
     dconf-editor
+  
+    pciutils
+    usbutils
+
+    qmk
+    qmk_hid
+    qmk-udev-rules
+    # qmk.nvim
+    keymapviz
+    vial
 
     # GNOME Extensions
     gnomeExtensions.auto-accent-colour
@@ -42,7 +53,7 @@
     gnomeExtensions.vitals
     gnomeExtensions.appindicator
     gnomeExtensions.tiling-shell
-    gnomeExtensions.dash-to-dock
+    # gnomeExtensions.dash-to-dock
     gnomeExtensions.pip-on-top
     gnomeExtensions.caffeine
     gnomeExtensions.appindicator

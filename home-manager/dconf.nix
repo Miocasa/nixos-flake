@@ -38,7 +38,7 @@
         "caffeine@patapon.info"
         "clipboard-indicator@tudmotu.com"
         "compiz-windows-effect@hermes83.github.com"
-        "dash-to-dock@micxgx.gmail.com"
+        # "dash-to-dock@micxgx.gmail.com"
         "gsconnect@andyholmes.github.io"
         "mediacontrols@cliffniff.github.com"
         "pip-on-top@rafostar.github.com"
