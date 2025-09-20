@@ -25,7 +25,10 @@
       close = ["<Super>q" "<Alt>F4"];
       toggle-fullscreen = ["<Super>f"];
     };
-    
+    "org/gnome/desktop/interface" = {
+      gtk-theme = ["Adw-gtk-dark"];
+      cursor-theme = ["GoogleDot-Blue"];
+    };
     "org/gnome/shell" = {
       disabled-extensions = [];
       remember-mount-password = ["true"];

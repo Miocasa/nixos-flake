@@ -34,10 +34,16 @@
     fum
     # aider-chat
     dconf-editor
-  
+    adw-gtk3
+
     pciutils
     usbutils
 
+    # steam/protone
+    winetricks
+    r2modman
+
+    # qmk/vial
     qmk
     qmk_hid
     qmk-udev-rules
@@ -45,6 +51,8 @@
     keymapviz
     vial
 
+    resources
+    mission-center
     # GNOME Extensions
     gnomeExtensions.auto-accent-colour
     gnomeExtensions.bluetooth-battery-meter
@@ -68,6 +76,7 @@
     # Icons and Themes
     morewaita-icon-theme
   ];
+  
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
