@@ -1,6 +1,17 @@
 { config, pkgs, lib, ... }:
 
 {
+  # QT Configs
+  qt.enable = true;
+
+  qt = {
+    platformTheme = "gtk";
+    style = {
+      # name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
+  
   dconf.settings = {
     # "org/gnome/desktop/input-sources" = {
     #   xkb-options = [ "ctrl:swapcaps" ];

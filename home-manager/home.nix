@@ -88,6 +88,7 @@
 
   imports = [
     ./dconf.nix
+    # ./gtk.nix
   ];
 
   home.sessionVariables = {
