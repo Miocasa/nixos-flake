@@ -9,7 +9,7 @@
   jovian = {
     steamos.useSteamOSConfig = true;
     steam = {
-      user = deck;
+      user = "deck";
       enable = true;
       autoStart = true;
       desktopSession = "gnome";
@@ -22,5 +22,5 @@
     };
     # hardware.has.amd.gpu = true;
 
-  }
+  };
 }
