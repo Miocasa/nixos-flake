@@ -86,8 +86,7 @@
     enable = true;
     enable32Bit = true;
   };
-  systemd.packages = with pkgs; [ lact ];
-  systemd.services.lactd.wantedBy = ["multi-user.target"];
+  systemd.packages = with pkgs; [  ];
 
   networking.networkmanager.enable = true;
   networking.hostName = "steamdeck";
@@ -106,7 +105,7 @@
     heimdal
     krb5.dev
     gcc
-    lact
+    
 
     # Core system utilities
     wsdd
