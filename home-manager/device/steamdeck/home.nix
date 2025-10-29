@@ -11,19 +11,15 @@
     # GUI Applications
     gnome-tweaks
     dconf-editor
-    gparted
-    dbeaver-bin
-    # pinta
     google-chrome
     zoom-us
-    # postman
-    # slack
     telegram-desktop
     youtube-music
     yt-dlp
     google-cursor
     neovim
     starship
+    spotify
     luarocks
     tmux
     lazygit

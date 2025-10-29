@@ -11,8 +11,6 @@
     # GUI Applications
     gnome-tweaks
     dconf-editor
-    gparted
-    dbeaver-bin
     # pinta
     google-chrome
     zoom-us
