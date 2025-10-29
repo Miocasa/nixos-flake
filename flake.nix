@@ -52,7 +52,7 @@
       setFlakeRegistry = false;
       setNixPath = false;
     };
-      laptop = nixpkgs-unstable.lib.nixosSystem {
+      laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [
