@@ -18,7 +18,7 @@
     vulkan-extension-layer
   ];
   
-  services.xserver.videoDrivers = ["amdgpu"];
+  # services.xserver.videoDrivers = ["amdgpu"];
   
   
   hardware.enableRedistributableFirmware = true;
