@@ -27,6 +27,11 @@
     };
   };
 
+  nixConfig = {
+    extra-experimental-features = [ "nix-command" "flakes" ];
+    registry.nixpkgs.flake = "nixpkgs-unstable";
+  };
+  
   outputs = {
     self,
     nixpkgs,
