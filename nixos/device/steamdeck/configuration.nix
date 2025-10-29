@@ -91,7 +91,7 @@
 
   networking.networkmanager.enable = true;
   networking.hostName = "steamdeck";
-
+  # nixpkgs.config.allowUnfree = true;
   # System-wide packages (core system tools only)
   environment.systemPackages = with pkgs; [
     # Build essentials

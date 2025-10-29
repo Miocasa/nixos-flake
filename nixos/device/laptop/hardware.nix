@@ -11,7 +11,7 @@
   hardware.graphics.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
     mesa
-    amdvlk
+    # amdvlk
     nvidia-vaapi-driver
     vaapiVdpau
     vulkan-loader

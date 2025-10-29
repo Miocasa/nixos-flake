@@ -63,11 +63,11 @@
           ./nixos
           ./nixos/device/steamdeck
           Jovian-NixOS.nixosModules.default
-          home-manager.nixosModules.home-manager
+          home-manager-unstable.nixosModules.home-manager
           {
             # home-manager-unstable.useGlobalPkgs = true;
-            home-manager-unstable.useUserPackages = true;
-            home-manager-unstable.users.miocasa = import ./home-manager/device/steamdeck;
+            home-manager.useUserPackages = true;
+            home-manager.users.deck = import ./home-manager/device/steamdeck;
           }
         ];
       };

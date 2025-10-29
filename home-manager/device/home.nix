@@ -1,12 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.username = "deck";
-  home.homeDirectory = "/home/deck";
+  home.username = "miocasa";
+  home.homeDirectory = "/home/miocasa";
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
   dconf.enable = true;
-  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     # GUI Applications
     gnome-tweaks
@@ -87,7 +87,10 @@
     ];
   };
 
-  
+  imports = [
+    ./dconf.nix
+    # ./gtk.nix
+  ];
 
   home.sessionVariables = {
     EDITOR = "nvim";

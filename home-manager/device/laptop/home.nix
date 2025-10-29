@@ -6,7 +6,7 @@
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
   dconf.enable = true;
-
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # GUI Applications
     gnome-tweaks
