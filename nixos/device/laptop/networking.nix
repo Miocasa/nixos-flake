@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  networking.interfaces.w.ipv4.addresses = [ 
+  networking.interfaces.wlan0.ipv4.addresses = [ 
     # Format: "IP_ADDRESS/NETMASK_CIDR"
     { address = "192.168.0.40"; prefixLength = 24; } 
   ];
