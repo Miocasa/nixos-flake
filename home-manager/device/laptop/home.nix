@@ -3,7 +3,7 @@
 {
   home.username = "miocasa";
   home.homeDirectory = "/home/miocasa";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
   programs.home-manager.enable = true;
   dconf.enable = true;
   nixpkgs.config.allowUnfree = true;

@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
-  modules = [
+  imports = [
+    ./home.nix 
+    # ./gtk.nix 
     ./dconf.nix
-    ./home.nix
-    # ./gtk.nix
   ];
 }
