@@ -10,7 +10,7 @@
 
   hardware.graphics.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
-    mesa
+    # mesa
     # amdvlk
     vaapiVdpau
     vulkan-loader
@@ -18,7 +18,7 @@
     vulkan-extension-layer
   ];
   
-  # services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = ["amdgpu"];
   
   
   hardware.enableRedistributableFirmware = true;
