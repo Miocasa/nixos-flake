@@ -4,5 +4,6 @@
     ./configuration.nix
     ./users.nix
     ./hardware.nix
+    ./hardware-configuration.nix
   ];
 }

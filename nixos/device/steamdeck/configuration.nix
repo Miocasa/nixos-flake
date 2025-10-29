@@ -5,10 +5,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-  
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
