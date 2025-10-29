@@ -91,7 +91,7 @@
 
   networking.networkmanager.enable = true;
   networking.hostName = "steamdeck";
-  nix.registry.nixpkgs.to.path = lib.mkForce pkgs.path;
+  
   # System-wide packages (core system tools only)
   environment.systemPackages = with pkgs; [
     # Build essentials

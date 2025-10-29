@@ -29,7 +29,6 @@
 
   nixConfig = {
     extra-experimental-features = [ "nix-command" "flakes" ];
-    registry.nixpkgs.flake = "nixpkgs-unstable";
   };
   
   outputs = {
@@ -45,8 +44,15 @@
   } @inputs: let
         inherit (self) outputs;
         system = "x86_64-linux";
+        lib = nixpkgs-unstable.lib;
   in {
+    
+    nix.registry.nixpkgs.to.path = lib.mkForce (builtins.getFlake "github:NixOS/nixpkgs");
     nixosConfigurations = {
+      nixpkgs.flake = {
+      setFlakeRegistry = false;
+      setNixPath = false;
+    };
       laptop = nixpkgs-unstable.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
