@@ -17,7 +17,6 @@
     flatpak
     git
     tree
-    gamescope
     vesktop
     libreoffice-fresh
     blender

@@ -94,7 +94,7 @@
   systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   networking.networkmanager.enable = true;
-  networking.hostName = "nixos";
+  networking.hostName = "steamdeck";
 
   # System-wide packages (core system tools only)
   environment.systemPackages = with pkgs; [

@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.username = "miocasa";
-  home.homeDirectory = "/home/miocasa";
+  home.username = "deck";
+  home.homeDirectory = "deck";
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
   dconf.enable = true;
@@ -54,6 +54,7 @@
     resources
     mission-center
     # GNOME Extensions
+    gnomeExtensions.custom-reboot
     gnomeExtensions.auto-accent-colour
     gnomeExtensions.bluetooth-battery-meter
     gnomeExtensions.edit-desktop-files
@@ -86,10 +87,7 @@
     ];
   };
 
-  imports = [
-    ./dconf.nix
-    # ./gtk.nix
-  ];
+  
 
   home.sessionVariables = {
     EDITOR = "nvim";
