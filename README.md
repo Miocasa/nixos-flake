@@ -24,6 +24,30 @@ Further details in the [INSTALL.md](./INSTALL.md) file.
 ├── nixos/            - System configuration
 └── README.md         - This file
 ```
+```
+.
+├── flake.nix                              - Main flake configuration
+├── home-manager                           - User configuration
+│   └── device                             
+│       └── $Device                        
+|           ├── dconf.nix                  - Main flake configuration
+│           ├── default.nix
+│           ├── gtk.nix
+│           └── home.nix
+├── nixos
+│   ├── device
+│   │   └── $Device
+│   │       ├── configuration.nix
+│   │       ├── default.nix
+│   │       ├── hardware-configuration.nix
+│   │       ├── hardware.nix
+│   │       └── users.nix
+│   ├── default.nix
+│   ├── packages.nix
+│   └── shell.nix
+├── INSTALL.md
+└── README.md
+```
 
 ## Usage
 
