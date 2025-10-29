@@ -5,6 +5,7 @@
     ./users.nix
     ./hardware.nix
     ./hardware-configuration.nix
+    ./networking.nix
   ];
   jovian = {
     steamos.useSteamOSConfig = true;
