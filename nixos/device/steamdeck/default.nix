@@ -18,6 +18,7 @@
     decky-loader = {
       enable = true;
     };
+    lol = true;
     devices.steamdeck = {
       enable = true;
     };
