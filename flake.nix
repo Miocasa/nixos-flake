@@ -2,7 +2,8 @@
   description = "NixOS + Hyprland dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     
@@ -65,7 +66,7 @@
           }
         ];
       };
-      steamdeck = nixpkgs-unstable.lib.nixosSystem {
+      steamdeck = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [
