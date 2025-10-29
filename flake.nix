@@ -1,26 +1,22 @@
 {
   description = "NixOS + Hyprland dotfiles";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     home-manager-old = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-old";
     };
-
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
     Jovian-NixOS = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -30,7 +26,7 @@
   nixConfig = {
     extra-experimental-features = [ "nix-command" "flakes" ];
   };
-  
+
   outputs = {
     self,
     nixpkgs,
@@ -41,21 +37,19 @@
     home-manager-unstable,
     Jovian-NixOS,
     ...
-  } @inputs: let
-        inherit (self) outputs;
-        system = "x86_64-linux";
-        lib = nixpkgs-unstable.lib;
+  } @ inputs: let
+    inherit (self) outputs;
+    system = "x86_64-linux";
+
+    # Define a common lib from the unstable channel (or any channel you prefer)
+    lib = nixpkgs-unstable.lib;
   in {
-    
+    # Registry override must be inside outputs
     nix.registry.nixpkgs.to.path = lib.mkForce (builtins.getFlake "github:NixOS/nixpkgs");
+
     nixosConfigurations = {
-      nixpkgs.flake = {
-      setFlakeRegistry = false;
-      setNixPath = false;
-    };
       laptop = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
+        specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos
           ./nixos/device/laptop
@@ -67,30 +61,20 @@
           }
         ];
       };
+
       steamdeck = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
+        specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos
           ./nixos/device/steamdeck
           Jovian-NixOS.nixosModules.default
           home-manager-unstable.nixosModules.home-manager
           {
-            # home-manager-unstable.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.deck = import ./home-manager/device/steamdeck;
           }
         ];
       };
-      # "steamdeck2" = nixpkgs-unstable.lib.nixosSystem {
-      #   inherit system;
-      #   specialArgs = defaultSpecialArgs;
-      #   modules = [
-      #     home-manager-unstable.nixosModules.default
-      #     ./steamdeck
-      #     Jovian-NixOS.nixosModules.default
-      #   ] ++ defaultModules;
-      # };
     };
   };
 }
