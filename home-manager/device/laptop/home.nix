@@ -11,11 +11,8 @@
     # GUI Applications
     gnome-tweaks
     dconf-editor
-    # pinta
     google-chrome
     zoom-us
-    # postman
-    # slack
     telegram-desktop
     youtube-music
     yt-dlp
@@ -76,6 +73,11 @@
     morewaita-icon-theme
   ];
   
+  imports = [
+    ./spicetify.nix 
+    ./dconf.nix
+  ];
+
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [

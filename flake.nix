@@ -6,7 +6,7 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +26,11 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   nixConfig = {
@@ -41,11 +46,13 @@
     home-manager-old,
     home-manager-unstable,
     Jovian-NixOS,
+    spicetify-nix,
     ...
   } @inputs: let
-        inherit (self) outputs;
-        system = "x86_64-linux";
-        lib = nixpkgs-unstable.lib;
+      spicetify = spicetify-nix.lib.mkSpicetify pkgs { };
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      lib = nixpkgs-unstable.lib;
   in {
     nixosConfigurations = {
       nixpkgs.flake = {
@@ -66,12 +73,13 @@
           }
         ];
       };
+
       steamdeck = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
         modules = [
           ./nixos
           ./nixos/device/steamdeck
+          spicetify-nix.homeManagerModules.spicetify
           Jovian-NixOS.nixosModules.default
           home-manager-unstable.nixosModules.home-manager
           {

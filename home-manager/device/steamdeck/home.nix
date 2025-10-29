@@ -73,6 +73,11 @@
     # Icons and Themes
     morewaita-icon-theme
   ];
+
+  imports = [
+    ./spicetify.nix 
+    ./dconf.nix
+  ];
   
   programs.mpv = {
     enable = true;
