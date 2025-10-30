@@ -58,7 +58,7 @@
         "gsconnect@andyholmes.github.io"
         "mediacontrols@cliffniff.github.com"
         "pip-on-top@rafostar.github.com"
-        "space-bar@luchrioh"
+        # "space-bar@luchrioh"
         "tilingshell@ferrarodomenico.com"
         "customreboot@nova1545"
       ];
