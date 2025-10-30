@@ -149,7 +149,8 @@
   };
 
   virtualisation.docker.enable = true;
-
+  virtualisation.waydroid.enable = true;
+  
   users.defaultUserShell = pkgs.zsh;
 
   services.gnome.gnome-keyring.enable = true;
