@@ -67,7 +67,7 @@
     gnomeExtensions.gsconnect
     gnomeExtensions.coverflow-alt-tab
     gnomeExtensions.compiz-windows-effect
-    gnomeExtensions.space-bar
+    # gnomeExtensions.space-bar
     # gnomeExtensions.system-monitor
 
     # Icons and Themes

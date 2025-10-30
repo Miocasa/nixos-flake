@@ -47,7 +47,7 @@
     system = "x86_64-linux";
     lib = nixpkgs.lib;
     pkgs-stable = import inputs.nixpkgs-stable {
-    system = pkgs.system;
+    inherit system;
     config.allowUnfree = true;
   };
   in {
