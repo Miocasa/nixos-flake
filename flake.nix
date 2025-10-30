@@ -46,10 +46,10 @@
     inherit (self) outputs;
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-    pkgs-stable = import inputs.nixpkgs-stable {
-    inherit system;
-    config.allowUnfree = true;
-  };
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in {
     nixosConfigurations = {
       nixpkgs.flake = {
