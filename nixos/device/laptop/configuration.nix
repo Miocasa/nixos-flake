@@ -5,10 +5,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-  
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -94,7 +90,7 @@
   systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   networking.networkmanager.enable = true;
-  networking.hostName = "nixos";
+  networking.hostName = "steamdeck";
 
   # System-wide packages (core system tools only)
   environment.systemPackages = with pkgs; [
@@ -154,7 +150,8 @@
   };
 
   virtualisation.docker.enable = true;
-
+  virtualisation.waydroid.enable = true;
+  
   users.defaultUserShell = pkgs.zsh;
 
   services.gnome.gnome-keyring.enable = true;
@@ -163,7 +160,17 @@
 
   services.flatpak.enable = true;
 
-  
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PasswordAuthentication = true;
+      AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+    };
+  };
   # services.pipewire.enable = true;
 
   system.stateVersion = "25.05";

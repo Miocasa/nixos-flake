@@ -1,11 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-stable, lib, ... }:
 {
   imports = [
-    ./configuration.nix
-    ./hardware.nix
     ./packages.nix
     ./shell.nix
-    ./users.nix
   ];
 
 }

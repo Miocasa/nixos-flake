@@ -17,19 +17,17 @@
     flatpak
     git
     tree
-    gamescope
     vesktop
     libreoffice-fresh
     blender
     waydroid
     waydroid-helper
     fastfetch
-    # kdePackages.kdeconnect-kde
-    # python environment
     uv
     pipx
-
     nix-ld
+    # pkg that exist only in stable repo 
+    pkgs-stable.efibootmgr
   ];
   programs.nix-ld.enable = true;
   

@@ -3,16 +3,14 @@
 {
   home.username = "miocasa";
   home.homeDirectory = "/home/miocasa";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
   programs.home-manager.enable = true;
   dconf.enable = true;
-
+  nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     # GUI Applications
     gnome-tweaks
     dconf-editor
-    gparted
-    dbeaver-bin
     # pinta
     google-chrome
     zoom-us
@@ -54,6 +52,7 @@
     resources
     mission-center
     # GNOME Extensions
+    gnomeExtensions.custom-reboot
     gnomeExtensions.auto-accent-colour
     gnomeExtensions.bluetooth-battery-meter
     gnomeExtensions.edit-desktop-files
@@ -86,10 +85,7 @@
     ];
   };
 
-  imports = [
-    ./dconf.nix
-    # ./gtk.nix
-  ];
+  
 
   home.sessionVariables = {
     EDITOR = "nvim";

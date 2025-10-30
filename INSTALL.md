@@ -1,6 +1,6 @@
 # NixOS Installation Guide
 
-## 1. Fresh Install Preparation
+## 1. Fresh Install(from liveiso) Preparation
 ```bash
 # From installation ISO after partitioning/mounting:
 sudo -i
@@ -17,29 +17,34 @@ git clone https://github.com/Miocasa/nixos-flake /mnt/etc/nixos
 cp /mnt/etc/nixos.original/hardware-configuration.nix /mnt/etc/nixos/nixos/
 ```
 
-## 3. Configuration Validation
+## 3. Configuration
 Ensure these matches:
 ```nix
 # flake.nix
-nixosConfigurations.nixos = ...  # ← This name
+nixosConfigurations.laptop = ...  # ← This name
 
 # configuration.nix
 networking.hostName = "nixos";  # ← Must match
 
 # home.nix
-home.username = "Miocasa";  # ← Must match user creation
+home.username = "miocasa";  # ← Must match user creation
 ```
 
 ## 4. Build & Activate
 ```bash
-nixos-install --flake /mnt/etc/nixos#nixos --no-root-passwd
+nixos-install --flake /mnt/etc/nixos#steamdeck --no-root-passwd
 ```
-
+For steam deck `nixos-rebuild build --flake .#steamdeck`
+For laptop with amd and hvidia hybrid graphic `nixos-rebuild build --flake .#laptop`
 ## Post-Install Essentials
 ```bash
 # Set password for user
-passwd miocasa
+passwd miocasa # or passwd deck for steam deck
 ```
+## Warning
+Setup on preinstalled system may be problematic due to dependency errors.
+
+Highly recomended to fresh install.
 
 ## Key Verification Points
 1. Home Manager integration is properly nested under `home-manager.users.miocasa`

@@ -2,15 +2,15 @@
 
 {
   # QT Configs
-  qt.enable = true;
+  # qt.enable = true;
 
-  qt = {
-    platformTheme = "gtk";
-    style = {
-      # name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
+  # qt = {
+  #   platformTheme = "gtk";
+  #   style = {
+  #     # name = "adwaita-dark";
+  #     package = pkgs.adwaita-qt;
+  #   };
+  # };
   
   dconf.settings = {
     # "org/gnome/desktop/input-sources" = {
@@ -23,9 +23,9 @@
       font-hinting = "slight";
       enable-animations = true;
     };
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = lib.mkBefore (map (n: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom${toString n}/") (lib.range 0 6));
-    };
+    # "org/gnome/settings-daemon/plugins/media-keys" = {
+    #   custom-keybindings = lib.mkBefore (map (n: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom${toString n}/") (lib.range 0 6));
+    # };
     # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
     #   name = "Chrome";
     #   command = "google-chrome-stable";
@@ -41,7 +41,11 @@
       cursor-theme = ["GoogleDot-Blue"];
     };
     "org/gnome/shell" = {
-      disabled-extensions = [];
+      disabled-extensions = [
+        # "compiz-windows-effect@hermes83.github.com"
+        # "dash-to-dock@micxgx.gmail.com"
+        # "system-monitor@gnome-shell-extensions.gcampax.github.com"
+      ];
       remember-mount-password = ["true"];
       disable-user-extensions = false;
       enabled-extensions = [
@@ -51,19 +55,16 @@
         "blur-my-shell@aunetx"
         "caffeine@patapon.info"
         "clipboard-indicator@tudmotu.com"
-        "compiz-windows-effect@hermes83.github.com"
-        # "dash-to-dock@micxgx.gmail.com"
         "gsconnect@andyholmes.github.io"
         "mediacontrols@cliffniff.github.com"
         "pip-on-top@rafostar.github.com"
         "space-bar@luchrioh"
-        # "system-monitor@gnome-shell-extensions.gcampax.github.com"
         "tilingshell@ferrarodomenico.com"
-
+        "customreboot@nova1545"
       ];
       favorite-apps = [
         "google-chrome.desktop"
-        "codium.desktop"
+        "vscodium.desktop"
         "org.gnome.Console.desktop"
         "nautilus.desktop"
       ];
