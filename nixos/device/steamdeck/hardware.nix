@@ -12,7 +12,7 @@
   hardware.graphics.extraPackages = with pkgs; [
     # mesa
     # amdvlk
-    vaapiVdpau
+    # libva-vdpau-driver
     vulkan-loader
     vulkan-validation-layers
     vulkan-extension-layer
