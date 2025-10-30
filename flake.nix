@@ -46,45 +46,47 @@
     inherit (self) outputs;
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-    pkgs-stable = import nixpkgs-stable {
-      inherit system;
-      config.allowUnfree = true;
-    };
   in {
     nixosConfigurations = {
       nixpkgs.flake = {
       setFlakeRegistry = false;
       setNixPath = false;
     };
-      laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
-        modules = [
-          ./nixos
-          ./nixos/device/laptop
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.miocasa = import ./home-manager/device/laptop;
-          }
-        ];
+    laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs outputs;};
+      # > Our main nixos configuration file <
+      modules = [
+        ./nixos
+        ./nixos/device/laptop
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.miocasa = import ./home-manager/device/laptop;
+        }
+      ];
+    };
+    steamdeck = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs outputs;
+        pkgs-stable = import inputs.nixpkgs-stable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
       };
-      steamdeck = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        # > Our main nixos configuration file <
-        modules = [
-          ./nixos
-          ./nixos/device/steamdeck
-          Jovian-NixOS.nixosModules.default
-          home-manager-unstable.nixosModules.home-manager
-          {
-            # home-manager-unstable.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.deck = import ./home-manager/device/steamdeck;
-          }
-        ];
-      };
+      # > Our main nixos configuration file <
+      modules = [
+        ./nixos
+        ./nixos/device/steamdeck
+        Jovian-NixOS.nixosModules.default
+        home-manager-unstable.nixosModules.home-manager
+        {
+          # home-manager-unstable.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.deck = import ./home-manager/device/steamdeck;
+        }
+      ];
+    };
       # "steamdeck2" = nixpkgs-unstable.lib.nixosSystem {
       #   inherit system;
       #   specialArgs = defaultSpecialArgs;
