@@ -36,8 +36,8 @@
 
   services.logind.settings = {
     Login = {
-      HandlePowerKey = "suspend-then-hibernate";                    # Ignore short press
-      HandlePowerKeyLongPress = "poweroff";         # Long press = shutdown
+      HandlePowerKey = lib.mkForce "suspend-then-hibernate";                    # Ignore short press
+      HandlePowerKeyLongPress = lib.mkForce "poweroff";         # Long press = shutdown
       # HandleSuspendKey = lib.mkForce "suspend";                  # Steam button = suspend
       # HandleSuspendKeyLongPress = lib.mkForce "poweroff";       # Long Steam button = hibernate
       # HandleLidSwitch = lib.mkForce "suspend";                   # Close lid = suspend
