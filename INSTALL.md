@@ -34,7 +34,7 @@ home.username = "miocasa";  # ← Must match user creation
 ```bash
 nixos-install --flake /mnt/etc/nixos#steamdeck --no-root-passwd
 ```
-### Setup on exist system 
+## Setup on exist system 
 
 1. Clone repo 
 ```bash
