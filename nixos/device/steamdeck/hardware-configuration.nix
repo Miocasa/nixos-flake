@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-
+  
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/557944b8-1db4-437b-a4bf-4e614896a5d6";
       fsType = "btrfs";
@@ -31,7 +31,7 @@
       options = [ "defaults" "nofail" "x-systemd.growfs" ];
     };
 
-  swapDevices = [ ];
+  # Swap file was defined in hardware.nix
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

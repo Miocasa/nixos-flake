@@ -22,4 +22,19 @@
   
   
   hardware.enableRedistributableFirmware = true;
+
+  # Hibernation
+  boot.kernelParams = ["resume_offset=63657984"];
+  boot.resumeDevice = "/dev/disk/by-uuid/557944b8-1db4-437b-a4bf-4e614896a5d6";
+  powerManagement.enable = true;
+
+  services.power-profiles-daemon.enable = true;
+  
+  # Suspent then Hibernate on power button pressed
+  services.logind.powerKey = "suspend-then-hibernate";
+  services.logind.powerKeyLongPress = "poweroff";
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
+    SuspendState=mem
+  '';
 }

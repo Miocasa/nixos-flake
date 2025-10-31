@@ -64,7 +64,7 @@
       ];
       favorite-apps = [
         "google-chrome.desktop"
-        "vscodium.desktop"
+        "codium.desktop"
         "org.gnome.Console.desktop"
         "nautilus.desktop"
       ];

@@ -3,7 +3,7 @@
 {
   imports = [
     ./home.nix 
-    # ./gtk.nix 
+    ./gtk.nix 
     ./dconf.nix
   ];
 }
