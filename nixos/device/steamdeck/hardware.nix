@@ -44,7 +44,7 @@
       # HandleLidSwitchExternalPower = lib.mkForce "ignore";       # Lid on charger = ignore
       # HandleLidSwitchDocked = lib.mkForce "ignore";              # Lid docked = ignore
       IdleAction = lib.mkForce "suspend-then-hibernate";                        # Suspend after idle
-      IdleActionSec = lib.mkForce "30min";                       # 30 minutes idle timeout
+      IdleActionSec = lib.mkForce "25min";                       # 30 minutes idle timeout
     };
   }; 
   systemd.sleep.extraConfig = ''
