@@ -34,7 +34,10 @@ home.username = "miocasa";  # ← Must match user creation
 ```bash
 nixos-install --flake /mnt/etc/nixos#steamdeck --no-root-passwd
 ```
-### Setup on exist system 
+
+---
+
+## Setup on exist system 
 
 1. Clone repo 
 ```bash
@@ -67,6 +70,7 @@ sudo nixos-rebuild build --flake .#steamdeck
 # For laptop with amd and hvidia hybrid graphic 
 sudo nixos-rebuild build --flake .#laptop
 ```
+
 ## Post-Install Essentials
 ```bash
 # Set user password
