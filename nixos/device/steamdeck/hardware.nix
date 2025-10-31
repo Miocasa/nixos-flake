@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [];
@@ -33,12 +33,20 @@
   # Suspent then Hibernate on power button pressed
   services.logind.powerKey = lib.mkForce "suspend-then-hibernate";
   services.logind.powerKeyLongPress = "poweroff";
+
   services.logind.settings = {
     Login = {
-      IdleAction = "suspend";                        # Suspend after idle
-      IdleActionSec = "15min";                       # 30 minutes idle timeout
+      HandlePowerKey = lib.mkForce "suspend-then-hibernate";                    # Ignore short press
+      HandlePowerKeyLongPress = lib.mkForce "poweroff";         # Long press = shutdown
+      # HandleSuspendKey = lib.mkForce "suspend";                  # Steam button = suspend
+      # HandleSuspendKeyLongPress = lib.mkForce "poweroff";       # Long Steam button = hibernate
+      # HandleLidSwitch = lib.mkForce "suspend";                   # Close lid = suspend
+      # HandleLidSwitchExternalPower = lib.mkForce "ignore";       # Lid on charger = ignore
+      # HandleLidSwitchDocked = lib.mkForce "ignore";              # Lid docked = ignore
+      IdleAction = lib.mkForce "suspend-then-hibernate";                        # Suspend after idle
+      IdleActionSec = lib.mkForce "30min";                       # 30 minutes idle timeout
     };
-  };
+  }; 
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=30m
     SuspendState=mem
