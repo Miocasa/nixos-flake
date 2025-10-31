@@ -33,6 +33,11 @@
   # Suspent then Hibernate on power button pressed
   services.logind.powerKey = "suspend-then-hibernate";
   services.logind.powerKeyLongPress = "poweroff";
+  services.logind.settings = {
+  Login = {
+  IdleAction = "suspend";                        # Suspend after idle
+  IdleActionSec = "15min";                       # 30 minutes idle timeout
+  };
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=30m
     SuspendState=mem
