@@ -31,7 +31,7 @@
   services.power-profiles-daemon.enable = true;
   
   # Suspent then Hibernate on power button pressed
-  services.logind.powerKey = "suspend-then-hibernate";
+  services.logind.powerKey = lib.mkForce "suspend-then-hibernate";
   services.logind.powerKeyLongPress = "poweroff";
   services.logind.settings = {
     Login = {
