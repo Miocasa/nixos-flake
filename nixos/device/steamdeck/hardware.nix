@@ -45,6 +45,7 @@
       # HandleLidSwitchDocked = lib.mkForce "ignore";              # Lid docked = ignore
       IdleAction = lib.mkForce "suspend-then-hibernate";                        # Suspend after idle
       IdleActionSec = lib.mkForce "25min";                       # 30 minutes idle timeout
+      HibernateDelaySec="5m";
     };
   }; 
   systemd.sleep.extraConfig = ''
