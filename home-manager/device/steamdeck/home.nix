@@ -104,7 +104,17 @@
       pull.rebase = true;
     };
   };
-
+  xdg.autostart = {
+    enable = true;
+    entries = {
+      "steam" = {
+        name = "Steam";
+        exec = "steam";
+        comment = "Start Steam on login";
+        onlyShowIn = [ "GNOME" ];
+      };
+    };
+  };
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
