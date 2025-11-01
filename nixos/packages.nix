@@ -7,6 +7,9 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
+  programs = {
+    appimage = { enable = true; binfmt = true; };
+  };
   environment.systemPackages = with pkgs; [
     steam
     vscodium
