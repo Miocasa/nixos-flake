@@ -22,6 +22,7 @@
     google-cursor
     neovim
     starship
+    spotify
     luarocks
     tmux
     lazygit

@@ -106,7 +106,6 @@
     krb5.dev
     gcc
     
-
     # Core system utilities
     wsdd
     wget
