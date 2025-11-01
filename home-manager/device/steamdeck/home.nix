@@ -104,17 +104,15 @@
       pull.rebase = true;
     };
   };
-  xdg.autostart = {
-    enable = true;
-    entries = {
-      "steam" = {
-        name = "Steam";
-        exec = "steam";
-        comment = "Start Steam on login";
-        onlyShowIn = [ "GNOME" ];
-      };
-    };
-  };
+  xdg.configFile."autostart/steam.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Exec=steam -silent
+    Hidden=false
+    X-GNOME-Autostart-enabled=true
+    Name=Steam (Silent)
+    Comment=Start Steam silently on login
+  '';
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
