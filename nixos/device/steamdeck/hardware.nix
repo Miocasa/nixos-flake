@@ -33,7 +33,7 @@ in
   '';
 
   services.logind.settings.Login = {
-    HandlePowerKey = "hybrid-sleep";
+    HandlePowerKey = lib.mkForce "hybrid-sleep";
     HandleSuspendKey = "hybrid-sleep";
     HandleHibernateKey = "hibernate";
     IdleAction = "hybrid-sleep";
