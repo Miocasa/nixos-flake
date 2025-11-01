@@ -53,7 +53,13 @@
       setNixPath = false;
     };
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          pkgs-stable = import inputs.nixpkgs-stable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+        };
         # > Our main nixos configuration file <
         modules = [
           ./nixos
