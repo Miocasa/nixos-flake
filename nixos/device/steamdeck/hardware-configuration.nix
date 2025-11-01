@@ -29,6 +29,7 @@
     { device = "/dev/disk/by-uuid/7d475dca-9f54-4482-b2e2-f66ee22daae5";
       fsType = "ext4";
       options = [ "defaults" "nofail" "x-systemd.growfs" ];
+      neededForBoot = true;
     };
 
   # Swap file was defined in hardware.nix
