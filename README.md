@@ -10,7 +10,7 @@
 2. Build your hardware configuration `nixos-generate-config`
 3. Copy your hardware configuration to `nixos/device/<device>/hardware-configuration.nix`
 4. Commit the changes to your repository
-5. Build your system configuration `sudo nixos-rebuild switch --flake .#<device>` 
+5. Build your system configuration `sudo nixos-rebuild switch --flake ~/nixos-flake#<device>` 
 
 Further details in the [INSTALL.md](./INSTALL.md) file.
 
@@ -19,43 +19,22 @@ Further details in the [INSTALL.md](./INSTALL.md) file.
 
 ```
 .
-├── flake.nix         - Main flake configuration
-├── home-manager/     - User configuration
-├── nixos/            - System configuration
-└── README.md         - This file
-```
-```
-.
 ├── flake.nix                              - Main flake configuration
 ├── home-manager                           - User configuration
-│   └── device                             
-│       └── $Device                        
-|           ├── dconf.nix                  - Main flake configuration
-│           ├── default.nix
-│           ├── gtk.nix
-│           └── home.nix
-├── nixos
-│   ├── device
-│   │   └── $Device
-│   │       ├── configuration.nix
-│   │       ├── default.nix
-│   │       ├── hardware-configuration.nix
-│   │       ├── hardware.nix
-│   │       └── users.nix
-│   ├── default.nix
-│   ├── packages.nix
-│   └── shell.nix
-├── INSTALL.md
-└── README.md
+│   └── device                             - Device specific home configuraion
+│       └── $Device                        - Device name
+├── nixos                                  - System configuration
+│   ├── device                             - Device name
+│   │   └── $Device                        - Device specific system configuraion
+├── INSTALL.md                             - Installation instruction
+└── README.md                              - This page
 ```
 
 ## Usage
-
+### For laptop/pc
 Desktop UI is being handled by GDM + GNOME Shell for simplicity.
-
-Steam ui + Gnome as desktop.
-
-
+### For steam deck
+Steam os like, Gaming mode (Steam Bigscreen session) + Gnome as desktop session.
 
 #### Favorite apps in dash
 
@@ -63,10 +42,9 @@ Steam ui + Gnome as desktop.
 | --- | --- |
 | Gnome-console | Terminal emulator |
 | Google Chrome | Web browser |
+| Vscodium | Code editor |
 | Nautilus | File manager |
-| YouTube Music | Music player |
-| Telegram | Chat client |
-| Element | Matrix chat manager |
+
 
 
 
@@ -76,17 +54,19 @@ Steam ui + Gnome as desktop.
 | --- | --- |
 | `<Super>q` `<Alt>F4` | Close window |
 
+> Key binds can be defined in dconf.nix in device home-manager folder
 
 #### Extensions
 
 
 | Extension | Description |
 | --- | --- |
-| Media Controls | Adds media controls to the top of the screen |
-| Vitals | Adds a widget to the top of the screen |
+| Spotify control | Adds media controls to the top of the screen |
+| Astra monitor | Adds a widget with system usage information to the top of the screen |
 | AppIndicator | Handles tray icons |
 | Blur My Shell | Adds blur to multiple places |
 | Tiling Shell | Tiling manager |
+| *** | More description will be added later |
 
 
 
@@ -103,7 +83,8 @@ Steam ui + Gnome as desktop.
 
 | Font | Description |
 | --- | --- |
-| Caskaydia Cove | Nerd font |
-| Fira Code | Nerd font |
+| Now not installed | *** |
+| *** | *** |
 
 ## Screenshots
+> Will be added later
