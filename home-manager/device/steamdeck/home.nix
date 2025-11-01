@@ -50,7 +50,6 @@
     resources
     mission-center
     # GNOME Extensions
-    gnomeExtensions.custom-reboot
     gnomeExtensions.auto-accent-colour
     gnomeExtensions.bluetooth-battery-meter
     gnomeExtensions.edit-desktop-files
@@ -58,7 +57,7 @@
     gnomeExtensions.vitals
     gnomeExtensions.appindicator
     gnomeExtensions.tiling-shell
-    # gnomeExtensions.dash-to-dock
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.pip-on-top
     gnomeExtensions.caffeine
     gnomeExtensions.appindicator
@@ -67,7 +66,8 @@
     gnomeExtensions.gsconnect
     gnomeExtensions.coverflow-alt-tab
     gnomeExtensions.compiz-windows-effect
-    # gnomeExtensions.space-bar
+    gnomeExtensions.reboottouefi
+    gnomeExtensions.hibernate-status-button
     # gnomeExtensions.system-monitor
 
     # Icons and Themes
@@ -104,7 +104,15 @@
       pull.rebase = true;
     };
   };
-
+  xdg.configFile."autostart/steam.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Exec=steam -silent
+    Hidden=false
+    X-GNOME-Autostart-enabled=true
+    Name=Steam (Silent)
+    Comment=Start Steam silently on login
+  '';
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;

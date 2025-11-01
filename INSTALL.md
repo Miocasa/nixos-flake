@@ -63,10 +63,11 @@ cp /etc/nixos/hardware-configuration.nix ~/nix-flake/nixos/device/laptop
 3. Rebuild system
 ```bash
 # For steam deck 
-sudo nixos-rebuild build --flake .#steamdeck
+sudo nixos-rebuild build --flake ~/nixos-flake#steamdeck
 # For laptop with amd and hvidia hybrid graphic 
-sudo nixos-rebuild build --flake .#laptop
+sudo nixos-rebuild build --flake ~/nixos-flake#laptop
 ```
+
 ## Post-Install Essentials
 ```bash
 # Set user password

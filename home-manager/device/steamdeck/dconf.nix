@@ -36,10 +36,10 @@
       close = ["<Super>q" "<Alt>F4"];
       toggle-fullscreen = ["<Super>f"];
     };
-    "org/gnome/desktop/interface" = {
-      gtk-theme = ["Adw-gtk-dark"];
-      cursor-theme = ["GoogleDot-Blue"];
-    };
+    # "org/gnome/desktop/interface" = {
+    #   gtk-theme = ["Adw-gtk-dark"];
+    #   cursor-theme = ["GoogleDot-Blue"];
+    # };
     "org/gnome/shell" = {
       disabled-extensions = [
         # "compiz-windows-effect@hermes83.github.com"
@@ -61,10 +61,11 @@
         # "space-bar@luchrioh"
         "tilingshell@ferrarodomenico.com"
         "customreboot@nova1545"
+        "hibernate-status@dromi"
       ];
       favorite-apps = [
         "google-chrome.desktop"
-        "vscodium.desktop"
+        "codium.desktop"
         "org.gnome.Console.desktop"
         "nautilus.desktop"
       ];

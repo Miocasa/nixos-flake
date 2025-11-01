@@ -52,7 +52,6 @@
     resources
     mission-center
     # GNOME Extensions
-    gnomeExtensions.custom-reboot
     gnomeExtensions.auto-accent-colour
     gnomeExtensions.bluetooth-battery-meter
     gnomeExtensions.edit-desktop-files
@@ -70,6 +69,7 @@
     gnomeExtensions.coverflow-alt-tab
     gnomeExtensions.compiz-windows-effect
     gnomeExtensions.space-bar
+    gnomeExtensions.reboottouefi
     # gnomeExtensions.system-monitor
 
     # Icons and Themes
