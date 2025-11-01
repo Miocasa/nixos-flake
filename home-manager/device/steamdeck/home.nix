@@ -67,6 +67,7 @@
     gnomeExtensions.coverflow-alt-tab
     gnomeExtensions.compiz-windows-effect
     gnomeExtensions.reboottouefi
+    gnomeExtensions.hibernate-status-button
     # gnomeExtensions.system-monitor
 
     # Icons and Themes

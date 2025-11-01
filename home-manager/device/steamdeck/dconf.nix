@@ -61,6 +61,7 @@
         # "space-bar@luchrioh"
         "tilingshell@ferrarodomenico.com"
         "customreboot@nova1545"
+        "hibernate-status@dromi"
       ];
       favorite-apps = [
         "google-chrome.desktop"
