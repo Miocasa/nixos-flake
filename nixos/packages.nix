@@ -38,7 +38,8 @@
     # enable = true;
   # };
   networking.firewall = rec {
-  allowedTCPPortRanges = [ { from = 1714; to = 1764; } 53317 ]; # kde connect
+  allowedTCPPortRanges = [ { from = 1714; to = 1764; } ]; # kde connect
   allowedUDPPortRanges = allowedTCPPortRanges;
+  allowedUDPPorts = [ 53317 ];
   };
 }
