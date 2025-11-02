@@ -1,48 +1,74 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, 04e42ace-f4e6-4e65-a8a8-040a993e9bb9sumeOffset = 63657984;  # ← Replace with your swapfile offset value 
+  # sudo filefrag -v /home/swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
+in
 {
-  imports = [];
-
+  # imports = [];
+  # boot.kernelPackages = pkgs.linuxPackages_zen; # define kernel, if device is steam deck don't uncomment line
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  
+  # Hibernation
+  # swapDevices = [ { device = "/home/swapfile"; } ];
+  boot.kernelParams = [
+    "resume=UUID=04e42ace-f4e6-4e65-a8a8-040a993e9bb9"
+    # "resume_offset=${toString resumeOffset}"
+  ];
 
+  powerManagement.enable = true;
+
+  services.power-profiles-daemon.enable = true;
+  systemd.targets = {
+    suspend.enable = true;
+    hibernate.enable = true;
+    hybrid-sleep.enable = true;
+  };
+  
+  systemd.sleep.extraConfig = ''
+    AllowSuspendThenHibernate=yes
+    HibernateDelaySec=5m
+  '';
+
+  services.logind.settings.Login = {
+    HandlePowerKey = lib.mkForce "hybrid-sleep";
+    HandleSuspendKey = "hybrid-sleep";
+    HandleHibernateKey = "hibernate";
+    IdleAction = "hybrid-sleep";
+    IdleActionSec = "15min";
+  };
+
+
+  # Suspent then Hibernate on power button pressed
+  # services.logind.powerKey = lib.mkForce "suspend-then-hibernate";
+  # services.logind.powerKeyLongPress = "poweroff";
+
+  # services.logind.settings = {
+  #   Login = {
+  #     HandlePowerKey = lib.mkForce "suspend-then-hibernate";                    # Ignore short press
+  #     HandlePowerKeyLongPress = lib.mkForce "poweroff";         # Long press = shutdown
+  #     # HandleSuspendKey = lib.mkForce "suspend";                  # Steam button = suspend
+  #     # HandleSuspendKeyLongPress = lib.mkForce "poweroff";       # Long Steam button = hibernate
+  #     # HandleLidSwitch = lib.mkForce "suspend";                   # Close lid = suspend
+  #     # HandleLidSwitchExternalPower = lib.mkForce "ignore";       # Lid on charger = ignore
+  #     # HandleLidSwitchDocked = lib.mkForce "ignore";              # Lid docked = ignore
+  #     IdleAction = lib.mkForce "suspend-then-hibernate";                        # Suspend after idle
+  #     IdleActionSec = lib.mkForce "25min";                       # 30 minutes idle timeout
+  #     HibernateDelaySec="30m";
+  #   };
+  # }; 
+
+
+  # Graphic settings
   hardware.graphics.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
-    mesa
+    # mesa
     # amdvlk
-    nvidia-vaapi-driver
-    libva-vdpau-driver
+    # libva-vdpau-driver
     vulkan-loader
     vulkan-validation-layers
     vulkan-extension-layer
   ];
   
-  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
-  
-  # Configure NVIDIA specific options
-  hardware.nvidia = {
-    # If your card is a Turing generation (RTX 20xx) or newer, set this to true.
-    # Otherwise, set to false.
-    open = true;
-    # Other options can be added here, like modesetting
-    modesetting.enable = true;
-  };
+  services.xserver.videoDrivers = ["amdgpu"];
   hardware.enableRedistributableFirmware = true;
-
-  # # Hibernation
-  # boot.kernelParams = ["resume_offset=63657984"];
-  # boot.resumeDevice = "/dev/disk/by-uuid/557944b8-1db4-437b-a4bf-4e614896a5d6";
-  # powerManagement.enable = true;
-
-  # services.power-profiles-daemon.enable = true;
-  
-  # # Suspent then Hibernate on power button pressed
-  # services.logind.powerKey = "suspend-then-hibernate";
-  # services.logind.powerKeyLongPress = "poweroff";
-  # systemd.sleep.extraConfig = ''
-  #   HibernateDelaySec=30m
-  #   SuspendState=mem
-  # '';
 }
