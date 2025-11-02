@@ -44,6 +44,6 @@
   networking.firewall = rec {
   allowedTCPPortRanges = [ { from = 1714; to = 1764; } ]; # kde connect
   allowedUDPPortRanges = allowedTCPPortRanges;
-  allowedUDPPorts = [ 53317 ];
+  allowedUDPPorts = [ 9301 ];
   };
 }
