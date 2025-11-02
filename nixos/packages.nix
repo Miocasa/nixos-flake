@@ -33,7 +33,7 @@
     # pkg that exist only in stable repo 
     pkgs-stable.efibootmgr
   ];
-  programs.packet = {
+  programs.service = {
     openFirewall = true;
   };
   programs.nix-ld.enable = true;
