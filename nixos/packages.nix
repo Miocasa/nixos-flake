@@ -29,6 +29,7 @@
     uv
     pipx
     nix-ld
+    packet
     # pkg that exist only in stable repo 
     pkgs-stable.efibootmgr
   ];
