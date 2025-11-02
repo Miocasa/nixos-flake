@@ -1,4 +1,7 @@
-{ config, pkgs, 04e42ace-f4e6-4e65-a8a8-040a993e9bb9sumeOffset = 63657984;  # ← Replace with your swapfile offset value 
+{ config, pkgs, lib, ... }:
+
+let
+  # resumeOffset = 63657984;  # ← Replace with your swapfile offset value 
   # sudo filefrag -v /home/swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
 in
 {
@@ -11,7 +14,7 @@ in
   # Hibernation
   # swapDevices = [ { device = "/home/swapfile"; } ];
   boot.kernelParams = [
-    "resume=UUID=04e42ace-f4e6-4e65-a8a8-040a993e9bb9"
+    "resume=UUID=7d475dca-9f54-4482-b2e2-f66ee22daae5"
     # "resume_offset=${toString resumeOffset}"
   ];
 
