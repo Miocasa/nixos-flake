@@ -148,7 +148,7 @@
   };
   programs.steam ={
     fhsenv.enable = true;
-  }
+  };
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
   
