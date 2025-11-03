@@ -23,7 +23,7 @@
     vesktop
     libreoffice-fresh
     blender
-    waydroid
+    # waydroid
     waydroid-helper
     fastfetch
     uv

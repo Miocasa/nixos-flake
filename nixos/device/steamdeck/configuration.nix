@@ -147,7 +147,11 @@
     nix-direnv.enable = true;
   };
   programs.steam ={
-    fhsenv.enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      waydroid
+    ];
   };
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
