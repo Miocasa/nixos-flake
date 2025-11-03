@@ -33,9 +33,9 @@
     # pkg that exist only in stable repo 
     pkgs-stable.efibootmgr
   ];
-  services.packet = {
-    openFirewall = true;
-  };
+  # services.packet = {
+  #   openFirewall = true;
+  # };
   programs.nix-ld.enable = true;
   
   # programs.kdeconnect = {

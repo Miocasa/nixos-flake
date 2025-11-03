@@ -32,13 +32,13 @@ in
     HibernateDelaySec=5m
   '';
 
-  services.logind.settings.Login = {
-    HandlePowerKey = lib.mkForce "hybrid-sleep";
-    HandleSuspendKey = "hybrid-sleep";
-    HandleHibernateKey = "hibernate";
-    IdleAction = "hybrid-sleep";
-    IdleActionSec = "15min";
-  };
+  # services.logind.settings.Login = {
+  #   HandlePowerKey = lib.mkForce "hybrid-sleep";
+  #   HandleSuspendKey = "hybrid-sleep";
+  #   HandleHibernateKey = "hibernate";
+  #   IdleAction = "hybrid-sleep";
+  #   IdleActionSec = "15min";
+  # };
 
 
   # Suspent then Hibernate on power button pressed
