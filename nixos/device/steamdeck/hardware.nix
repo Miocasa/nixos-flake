@@ -13,11 +13,12 @@ in
   
   # Hibernation
   swapDevices = [ { device = "/home/swapfile"; } ];
-  boot.kernelParams = [
-    "resume=UUID=7d475dca-9f54-4482-b2e2-f66ee22daae5"
-    "resume_offset=${toString resumeOffset}"
-  ];
-
+  boot.initrd.systemd.nable = true;
+  # boot.kernelParams = [
+  #   "resume=UUID=7d475dca-9f54-4482-b2e2-f66ee22daae5"
+  #   "resume_offset=${toString resumeOffset}"
+  # ];
+  
   powerManagement.enable = true;
 
   services.power-profiles-daemon.enable = true;

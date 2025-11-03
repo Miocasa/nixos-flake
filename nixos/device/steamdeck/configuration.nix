@@ -149,9 +149,7 @@
   programs.steam ={
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraCompatPackages = with pkgs; [
-      waydroid
-    ];
+    extraCompatPackages = with pkgs; [ ];
   };
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
