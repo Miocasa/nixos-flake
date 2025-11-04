@@ -68,6 +68,7 @@
     gnomeExtensions.compiz-windows-effect
     gnomeExtensions.reboottouefi
     gnomeExtensions.hibernate-status-button
+    gnomeExtensions.restart-to
     # gnomeExtensions.system-monitor
 
     # Icons and Themes

@@ -60,7 +60,7 @@
         "pip-on-top@rafostar.github.com"
         # "space-bar@luchrioh"
         "tilingshell@ferrarodomenico.com"
-        "customreboot@nova1545"
+        "restartto@tiagoporsch.github.io"
         "hibernate-status@dromi"
       ];
       favorite-apps = [

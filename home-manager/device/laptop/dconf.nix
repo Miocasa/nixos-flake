@@ -60,11 +60,11 @@
         "pip-on-top@rafostar.github.com"
         "space-bar@luchrioh"
         "tilingshell@ferrarodomenico.com"
-        "customreboot@nova1545"
+        "restartto@tiagoporsch.github.io"
       ];
       favorite-apps = [
         "google-chrome.desktop"
-        "vscodium.desktop"
+        "codium.desktop"
         "org.gnome.Console.desktop"
         "nautilus.desktop"
       ];
