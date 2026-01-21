@@ -18,9 +18,11 @@
     # };
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      icon-theme = "MoreWaita";
+      # icon-theme = "MoreWaita";
       font-antialiasing = "rgba";
       font-hinting = "slight";
+      # gtk-theme = ["Adw-gtk-dark"];
+      # cursor-theme = ["GoogleDot-Blue"];
       enable-animations = true;
     };
     # "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -35,10 +37,6 @@
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q" "<Alt>F4"];
       toggle-fullscreen = ["<Super>f"];
-    };
-    "org/gnome/desktop/interface" = {
-      gtk-theme = ["Adw-gtk-dark"];
-      cursor-theme = ["GoogleDot-Blue"];
     };
     "org/gnome/shell" = {
       disabled-extensions = [

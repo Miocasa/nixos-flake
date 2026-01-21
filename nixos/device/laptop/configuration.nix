@@ -3,9 +3,10 @@
   lib,
   config,
   pkgs,
+  pkgs-stable,
+  nixos-conf-editor,
   ...
 }: {
-
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
@@ -18,7 +19,7 @@
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
-
+  
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
@@ -90,8 +91,8 @@
   systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   networking.networkmanager.enable = true;
-  networking.hostName = "steamdeck";
-
+  networking.hostName = "laplop";
+  
   # System-wide packages (core system tools only)
   environment.systemPackages = with pkgs; [
     # Build essentials
@@ -123,6 +124,20 @@
     ruby_3_4
     go
     python314
+
+    inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
+
+    android-tools
+
+    # Ide's for programming
+    jetbrains.rust-rover
+    jetbrains.clion
+    android-studio
+
+    # Databases for studying
+    sqlite
+    mysql84
+    mysql-workbench
   ];
 
   fonts.packages = with pkgs; [

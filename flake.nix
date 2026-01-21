@@ -7,6 +7,7 @@
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    nixos-conf-editor.url = "github:snowfallorg/nixos-conf-editor";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,6 +42,7 @@
     home-manager-old,
     home-manager-unstable,
     Jovian-NixOS,
+    nixos-conf-editor,
     ...
   } @inputs: let
     inherit (self) outputs;
@@ -53,7 +55,13 @@
       setNixPath = false;
     };
       laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          pkgs-stable = import inputs.nixpkgs-stable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+        };
         # > Our main nixos configuration file <
         modules = [
           ./nixos

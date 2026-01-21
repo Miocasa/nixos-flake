@@ -26,8 +26,12 @@
     uv
     pipx
     nix-ld
+
+    ptyxis
+    
     # pkg that exist only in stable repo 
     pkgs-stable.efibootmgr
+    # inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
   ];
   programs.nix-ld.enable = true;
   

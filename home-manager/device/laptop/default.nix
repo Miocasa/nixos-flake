@@ -5,5 +5,6 @@
     ./home.nix 
     ./gtk.nix 
     ./dconf.nix
+    ./shell.nix
   ];
 }

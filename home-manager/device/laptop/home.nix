@@ -3,7 +3,7 @@
 {
   home.username = "miocasa";
   home.homeDirectory = "/home/miocasa";
-  home.stateVersion = "25.11";
+  home.stateVersion = "25.05";
   programs.home-manager.enable = true;
   dconf.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -74,6 +74,18 @@
 
     # Icons and Themes
     morewaita-icon-theme
+
+    # Обязательные зависимости powerlevel10k
+    meslo-lgs-nf          # самый популярный и красивый шрифт для p10k
+    # (можно также: jetbrains-mono nerdfonts-symbols-only)
+
+    # Очень полезные и часто используемые утилиты
+    eza                   # современная замена ls
+    bat                   # cat с подсветкой
+    fd                    # быстрый find
+    ripgrep               # очень быстрый grep
+    fzf                   # fuzzy finder
+    zoxide                # умный cd (z вместо cd)
   ];
   
   programs.mpv = {
@@ -86,11 +98,10 @@
   };
 
   
-
   home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    # BROWSER = "google-chrome-stable";
+    # EDITOR = "nvim";
+    # VISUAL = "nvim";
+    BROWSER = "google-chrome-stable";
     # GEM_HOME = "$HOME/.local/share/gem/ruby/3.4.0";
     # GEM_PATH = "$HOME/.local/share/gem/ruby/3.4.0";
   };
@@ -101,6 +112,8 @@
 
   programs.git = {
     enable = true;
+    userName  = "Miocasa";
+    userEmail = "narimanabdualiev06.com";
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = true;
@@ -113,4 +126,11 @@
     enableSshSupport = true;
     pinentry.package = pkgs.pinentry-gnome3;
   };
+
+  # # Пример: systemd user-сервисы
+  # systemd.user.services.example = {
+  #   Unit.Description = "Пример сервиса";
+  #   Service.ExecStart = "${pkgs.hello}/bin/hello --greeting=Привет";
+  #   Install.WantedBy = [ "default.target" ];
+  # };
 }

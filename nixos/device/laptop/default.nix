@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixos-conf-editor, ... }:
 {
   imports = [
     ./configuration.nix
