@@ -146,6 +146,10 @@
     rustup
     rustc
 
+    # Flutter development tools
+    flutter
+    dart
+
     # Debug tools
     android-tools
 

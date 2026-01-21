@@ -1,0 +1,11 @@
+nohup: ignoring input
+krita-5.2.14-x86_64.AppImage installed in /home/miocasa/.cache/appimage-run/58862d8f744d829c3e09a2510cdd9304b2864467c908436564e3ffa9e8ae64d7
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+QObject::startTimer: Timers cannot have negative intervals
+Could not find platform independent libraries <prefix>
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+/home/miocasa/.cache/appimage-run/58862d8f744d829c3e09a2510cdd9304b2864467c908436564e3ffa9e8ae64d7/usr/lib/krita-python-libs/krita added to PYTHONPATH
