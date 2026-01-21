@@ -127,6 +127,9 @@
 
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
 
+    # 🖼️ 
+    krita
+
     # Ide's for development
     jetbrains.rust-rover
     jetbrains.clion
@@ -135,8 +138,7 @@
     # Embeded development tools
     platformio
     platformio-core
-    adafruit-nrfutil
-
+    # adafruit-nrfutil
 
     # Rust development tools and binaries
     cargo
