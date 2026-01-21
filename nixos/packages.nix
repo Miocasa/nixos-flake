@@ -27,6 +27,7 @@
     pipx
     nix-ld
 
+    # Console
     ptyxis
     
     # pkg that exist only in stable repo 

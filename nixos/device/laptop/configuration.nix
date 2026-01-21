@@ -127,17 +127,32 @@
 
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
 
-    android-tools
-
-    # Ide's for programming
+    # Ide's for development
     jetbrains.rust-rover
     jetbrains.clion
     android-studio
+
+    # Embeded development tools
+    platformio
+    platformio-core
+    adafruit-nrfutil
+
+
+    # Rust development tools and binaries
+    cargo
+    cargo-pio # Embeded
+    rustup
+    rustc
+
+    # Debug tools
+    android-tools
 
     # Databases for studying
     sqlite
     mysql84
     mysql-workbench
+
+    
   ];
 
   fonts.packages = with pkgs; [
