@@ -59,7 +59,7 @@
     gnomeExtensions.vitals
     gnomeExtensions.appindicator
     gnomeExtensions.tiling-shell
-    # gnomeExtensions.dash-to-dock
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.pip-on-top
     gnomeExtensions.caffeine
     gnomeExtensions.appindicator
@@ -70,7 +70,7 @@
     gnomeExtensions.compiz-windows-effect
     gnomeExtensions.space-bar
     gnomeExtensions.reboottouefi
-    # gnomeExtensions.system-monitor
+    gnomeExtensions.astra-monitor
 
     # Icons and Themes
     morewaita-icon-theme
@@ -109,6 +109,7 @@
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
+  
 
   programs.git = {
     enable = true;

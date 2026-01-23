@@ -47,24 +47,29 @@
       remember-mount-password = ["true"];
       disable-user-extensions = false;
       enabled-extensions = [
+        "monitor@astraext.github.io"
         "CoverflowAltTab@palatis.blogspot.com"
-        "Vitals@CoreCoding.com"
         "appindicatorsupport@rgcjonas.gmail.com"
+        "auto-accent-colour@Wartybix"
         "blur-my-shell@aunetx"
         "caffeine@patapon.info"
         "clipboard-indicator@tudmotu.com"
         "gsconnect@andyholmes.github.io"
         "mediacontrols@cliffniff.github.com"
         "pip-on-top@rafostar.github.com"
-        "space-bar@luchrioh"
+        "reboottouefi@ubaygd.com"
         "tilingshell@ferrarodomenico.com"
-        "customreboot@nova1545"
+        "dash-to-dock@micxgx.gmail.com"
       ];
       favorite-apps = [
         "google-chrome.desktop"
-        "vscodium.desktop"
-        "org.gnome.Console.desktop"
-        "nautilus.desktop"
+        "org.gnome.Ptyxis.desktop"
+        "org.gnome.Nautilus.desktop"
+        "clion.desktop"
+        "rust-rover.desktop"
+        "datagrip.desktop"
+        "obsidian.desktop"
+        "io.missioncenter.MissionCenter.desktop"
       ];
     };
     # "org/gnome/shell/extensions/openbar" = {
@@ -81,11 +86,7 @@
     #   isalpha = 0.71999999999999997;
     # };
     "org/gnome/shell/extensions/vitals" = {
-      hot-sensors = ["_processor_usage_" "_memory_usage_"];
-      position-in-panel = 0;
-      use-higher-precision = false;
-      alphabetize = true;
-      hide-zeros = false;
+
     };
     # "org/gnome/shell/extensions/blur-my-shell/applications" = {
     #   blur = true;
@@ -98,10 +99,10 @@
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
       blur = true;
     };
-    "org/gnome/shell/extensions/tilingshell" = {
-      inner-gaps = 12;
-      outer-gaps = 10;
-    };
+    # "org/gnome/shell/extensions/tilingshell" = {
+    #   inner-gaps = 12;
+    #   outer-gaps = 10;
+    # };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
     };

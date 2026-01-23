@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, lib, ... }:
+{ config, pkgs, pkgs-stable, lib, inputs, prism, ... }:
 {
   imports = [
     ./packages.nix

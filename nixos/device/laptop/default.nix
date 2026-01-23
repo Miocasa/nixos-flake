@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixos-conf-editor, ... }:
+{ config, pkgs, lib, nixos-conf-editor, mac-style-plymouth, ... }:
 {
   imports = [
     ./configuration.nix

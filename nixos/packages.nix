@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, ... }:
+{ config, pkgs, pkgs-stable, inputs, prism, ... }:
 
 {
   programs.steam.enable = true;
@@ -7,10 +7,12 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
+  
   environment.systemPackages = with pkgs; [
     steam
     vscodium
     google-chrome
+    obsidian
     zsh
     lua
     neovim
@@ -26,6 +28,10 @@
     uv
     pipx
     nix-ld
+    
+    appimage-run
+    steam-run
+    # sccache
 
     # Console
     ptyxis
@@ -33,6 +39,10 @@
     # pkg that exist only in stable repo 
     pkgs-stable.efibootmgr
     # inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
+
+    home-manager
+
+    inputs.prism.packages.${system}.prismlauncher
   ];
   programs.nix-ld.enable = true;
   

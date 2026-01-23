@@ -5,6 +5,7 @@
   pkgs,
   pkgs-stable,
   nixos-conf-editor,
+  mac-style-plymouth,
   ...
 }: {
   nix = let
@@ -125,6 +126,7 @@
     go
     python314
 
+    # inputs.mac-style-plymouth.packages.${system}.mac-style-plymouth
     inputs.nixos-conf-editor.packages.${system}.nixos-conf-editor
 
     # 🖼️ 
@@ -133,6 +135,7 @@
     # Ide's for development
     jetbrains.rust-rover
     jetbrains.clion
+    jetbrains.datagrip
     android-studio
 
     # Embeded development tools
@@ -144,7 +147,14 @@
     cargo
     cargo-pio # Embeded
     rustup
-    rustc
+    sccache
+    # rustc
+
+    # GTK development
+    pkg-config
+    glib
+    gtk4
+    libadwaita
 
     # Flutter development tools
     flutter
@@ -159,6 +169,7 @@
     mysql-workbench
 
     
+    home-assistant
   ];
 
   fonts.packages = with pkgs; [
@@ -186,8 +197,11 @@
   };
 
   virtualisation.docker.enable = true;
-  virtualisation.waydroid.enable = true;
-  
+  virtualisation.waydroid = {
+    enable = true;
+    package = pkgs.waydroid-nftables;
+  };
+
   users.defaultUserShell = pkgs.zsh;
 
   services.gnome.gnome-keyring.enable = true;
@@ -209,5 +223,5 @@
   };
   # services.pipewire.enable = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

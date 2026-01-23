@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, mac-style-plymouth, inputs, ... }:
 
 {
   imports = [];
@@ -30,39 +30,14 @@
     open = true;
     # Other options can be added here, like modesetting
     modesetting.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    powerManagement = {
+      enable = true;
+      finegrained = false;
+    };
   };
   hardware.enableRedistributableFirmware = true;
   
-  
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     libfprint = prev.libfprint.overrideAttrs (oldAttrs: {
-  #       version = "git";
-  #       src = final.fetchFromGitHub {
-  #         owner = "ericlinagora";
-  #         repo = "libfprint-CS9711";
-  #         rev = "c242a40fcc51aec5b57d877bdf3edfe8cb4883fd";
-  #         sha256 = "sha256-WFq8sNitwhOOS3eO8V35EMs+FA73pbILRP0JoW/UR80=";
-  #       };
-  #       nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [
-  #         final.opencv
-  #         final.cmake
-  #         final.doctest
-  #         final.pkg-config
-  #       ];
-  #       buildInputs = oldAttrs.buildInputs or [] ++ [
-  #         final.nss
-  #         # желательно добавить, если meson их ищет как runtime
-  #         final.glib
-  #         final.gusb
-  #         final.pixman
-  #         final.cairo
-  #       ];
-  #     });
-  #   })
-  # ];
-  # services.fprintd.enable = true;
-
   nixpkgs.overlays = [
     (final: prev: {
       libfprint = prev.libfprint.overrideAttrs (oldAttrs: {
@@ -83,6 +58,59 @@
     # ... other overlays 
   ];
   services.fprintd.enable = true; # MARK: fingerprint
+
+
+
+  boot = {
+
+    plymouth = {
+      enable = true;
+      theme = "mac-style";
+      themePackages = [ inputs.mac-style-plymouth.packages.${pkgs.system}.mac-style-plymouth ];
+    };
+
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "systemd.show_status=auto"
+    ];
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
+
+  };
+
+
+  # Hibernation config # not working yeat, 😭 this issue will kill me
+  # boot.resumeDevice = "/dev/disk/by-uuid/f06b34ee-2d61-4326-a117-951403adc05e";
+    
+  # swapDevices = [ 
+  #   {
+  #     device = "/var/lib/swapfile";
+  #     size   = 18 * 1024;
+  #   }
+  # ];
+  
+  # boot.kernelParams = [
+  #   "resume=/dev/disk/by-uuid/f06b34ee-2d61-4326-a117-951403adc05e"
+  #   "resume_offset=45147702"
+  #   # "mem_sleep_default=s2idle"
+  # ];
+
+  # systemd.services.systemd-suspend.environment = {
+  #   SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+  # };
+
+  # # suspend-then-hibernate
+  # systemd.sleep.extraConfig = ''
+  #   HibernateDelaySec=30m
+  #   SuspendState=mem
+  # '';
+  powerManagement.enable = true;
 
   # # Hibernation
   # boot.kernelParams = ["resume_offset=63657984"];
